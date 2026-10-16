@@ -473,7 +473,7 @@ pre.go code { font: inherit; background: none; color: inherit; padding: 0; borde
   .step-card .view-flow { min-height: 380px; }
 }
 @media (max-width: 760px) {
-  .masthead { grid-template-columns: auto 1fr; padding: 14px 16px 10px; }
+  .masthead { grid-template-columns: auto 1fr auto; padding: 14px 16px 10px; }
   .masthead-hint { display: none; }
   .board { padding: 0 16px 16px; }
   .guides-group { padding: 8px; }
@@ -519,3 +519,40 @@ em { font-style: italic; }
   .step-card .card-head { align-items: start; }
   .step-card .seg { justify-self: start; align-self: start; }
 }
+
+/* ---------- Light / dark switch ---------- */
+.masthead-tools { display: flex; align-items: center; gap: 16px; }
+.theme-toggle {
+  flex: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  font: inherit; font-size: 0.857rem; font-weight: 600;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line-strong);
+  border-radius: 99px;
+  padding: 4px 12px 4px 4px;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.theme-toggle:hover { border-color: var(--gold); }
+.tt-track {
+  position: relative;
+  width: 2.6rem; height: 1.45rem;
+  border-radius: 99px;
+  background: var(--gold-tint);
+  border: 1px solid var(--line);
+}
+.tt-knob {
+  position: absolute; top: 50%; left: 2px;
+  width: 1.15rem; height: 1.15rem; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 0.75rem; line-height: 1;
+  background: var(--gold); color: #1d1b16;
+  transform: translateY(-50%);
+  transition: left .25s ease;
+}
+.theme-toggle[aria-checked="true"] .tt-knob { left: calc(100% - 1.15rem - 2px); }
+.tt-label { min-width: 2.6em; text-align: left; }
+
+/* page cross-fade when switching themes */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .35s; }

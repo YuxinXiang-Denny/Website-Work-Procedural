@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark"; } catch (e) {}</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marigold Innovation Fund</title>
@@ -21,6 +22,7 @@
     <div class="portal">Innovation Fund</div>
   </div>
   <a class="back" href="index.html#qa">← Back to manual</a>
+  <button class="theme-toggle" type="button" role="switch" aria-checked="true" aria-label="Dark mode"><span class="tt-track"><span class="tt-knob">☾</span></span><span class="tt-label">Dark</span></button>
 </header>
 
 <main class="page">
@@ -78,6 +80,7 @@
   </section>
 </main>
 
+<script src="theme.js"></script>
 <script src="bg.js"></script>
 <script src="logo-data.js"></script>
 <script src="fx.js"></script>

@@ -17,6 +17,7 @@ body.subpage { height: auto; overflow: visible; display: block; }
   padding: 6px 12px; border-radius: 8px;
   border: 1px solid var(--line-strong); background: var(--card); color: var(--ink);
 }
+.topbar .theme-toggle { margin-left: 4px; }
 .back:hover { border-color: var(--gold); background: var(--gold-tint); color: var(--ink); }
 
 .page {
