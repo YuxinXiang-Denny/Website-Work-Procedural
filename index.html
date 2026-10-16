@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marigold Tech Procedural Manual</title>
+  <meta name="description" content="Procedural manual for the Software Development Engineer – Distributed Systems Services role at Marigold Tech.">
+  <link rel="icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <img class="masthead-logo" src="logo.png" alt="Marigold Tech logo">
+  <div class="masthead-titles">
+    <p class="eyebrow">Marigold Tech · Procedural Manual</p>
+    <h1>Software Development Engineer <span class="dash">—</span> Distributed Systems Services</h1>
+  </div>
+  <p class="masthead-hint">Hover over any section to explore it.<br>Click <span class="hint-icon">⤢</span> to open a section in full view.</p>
+</header>
+
+<main class="board">
+
+  <!-- 01 · INTRODUCTION -->
+  <section class="card" id="intro" data-fx aria-labelledby="intro-title">
+    <canvas class="fx" aria-hidden="true"></canvas>
+    <div class="card-head">
+      <span class="num">01</span>
+      <h2 id="intro-title">Introduction</h2>
+      <button class="expand" type="button" aria-label="Open Introduction in full view">⤢</button>
+    </div>
+    <div class="card-body">
+      <p class="lead">Welcome to Marigold Tech!</p>
+      <p>As a Distributed Systems Engineer, you will design, maintain, and upgrade our distributed system, which handles <strong class="hl">billions of operations per minute</strong> and is built to serve <strong class="hl">more than one million customers</strong> at the same time. You will write code, review code, and revise and comment on code that others submit. Please <strong>strictly follow</strong> the development procedures in the <a href="#guides" class="jump">Step-by-Step Guides</a>.</p>
+      <p class="sub-label">Our workplace is fully inclusive:</p>
+      <ul class="policies">
+        <li><strong>Meetings.</strong> If you are not comfortable participating in our meetings in person, you are welcome to join remotely, or to sit a meeting out entirely.</li>
+        <li><strong>Respect.</strong> If you experience any insult or discrimination based on your identity, please keep all evidence and report it; the person responsible will be <em>dismissed immediately</em>. In turn, we ask that you treat every colleague with the same respect.</li>
+        <li><strong>Feedback.</strong> Feel free to email Supervisor Pica (<a href="mailto:pica@marigold.uiuc">pica@marigold.uiuc</a>) about anything you think could be improved in our workplace. Every suggestion will be carefully considered.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 · COMMON Q&A -->
+  <section class="card" id="qa" data-fx aria-labelledby="qa-title">
+    <canvas class="fx" aria-hidden="true"></canvas>
+    <div class="card-head">
+      <span class="num">02</span>
+      <h2 id="qa-title">Common Q&amp;A</h2>
+      <button class="expand" type="button" aria-label="Open Common Q&amp;A in full view">⤢</button>
+    </div>
+    <div class="card-body">
+      <dl class="qa-list">
+        <div class="qa-item">
+          <dt>Can I use AI tools like ChatGPT, Copilot, or Google Gemini?</dt>
+          <dd>Yes and no. <strong>Claude Code is the only approved AI tool</strong>, because it is significantly more powerful than the alternatives. <a href="account.html">Claim your company account here.</a> Make sure you understand and test everything it produces, and <strong>never share private data</strong> with it.</dd>
+        </div>
+        <div class="qa-item">
+          <dt>How do I request time off?</dt>
+          <dd>Submit a <a href="time-off.html">time-off request</a> through the HR portal at any time.</dd>
+        </div>
+        <div class="qa-item">
+          <dt>How do I get promoted?</dt>
+          <dd>We hold performance reviews <em>every quarter</em>. Your contribution to company revenue is a key factor: the more value you create, the faster you can be promoted.</dd>
+        </div>
+        <div class="qa-item">
+          <dt>I have an idea for a new project. Can I act as an intrapreneur?</dt>
+          <dd>Yes! You can <a href="pitch.html">pitch your idea</a> and apply for company funding.</dd>
+        </div>
+        <div class="qa-item">
+          <dt>Any other questions?</dt>
+          <dd>Email Supervisor Pica at <a href="mailto:pica@marigold.uiuc">pica@marigold.uiuc</a>!</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 03 · STEP-BY-STEP GUIDES -->
+  <div class="guides-group" id="guides">
+
+    <section class="card guides-card" data-fx data-fx-area=".prep-text" aria-labelledby="guides-title">
+      <canvas class="fx" aria-hidden="true"></canvas>
+      <div class="card-head">
+        <span class="num">03</span>
+        <h2 id="guides-title">Step-by-Step Guides</h2>
+      </div>
+      <div class="prep">
+        <div class="prep-text">
+          <p class="lead">What should you do if you…</p>
+          <p><span class="tag">Before you start</span> Learn to use <strong>Git</strong> (a version control tool) and <strong>GitHub</strong> (a collaboration platform). These two short videos cover the basics.</p>
+        </div>
+        <figure class="video">
+          <div class="video-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/8JJ101D3knE?enablejsapi=1&amp;rel=0&amp;playsinline=1" data-yt="8JJ101D3knE" title="Git tutorial video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <figcaption><span>Git tutorial</span><button class="video-zoom" type="button" data-yt="8JJ101D3knE" data-title="Git tutorial">⤢ Watch larger</button></figcaption>
+        </figure>
+        <figure class="video">
+          <div class="video-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/pJYOG6klqj8?enablejsapi=1&amp;rel=0&amp;playsinline=1" data-yt="pJYOG6klqj8" title="GitHub tutorial video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <figcaption><span>GitHub tutorial</span><button class="video-zoom" type="button" data-yt="pJYOG6klqj8" data-title="GitHub tutorial">⤢ Watch larger</button></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="subgrid">
+
+      <!-- 03A · SUBMIT CODE -->
+      <article class="card step-card" id="submit" data-fx data-view="steps" aria-labelledby="submit-title">
+        <canvas class="fx" aria-hidden="true"></canvas>
+        <div class="card-head">
+          <span class="num">3A</span>
+          <h2 id="submit-title">…want to submit code?</h2>
+          <button class="expand" type="button" aria-label="Open Submit Code guide in full view">⤢</button>
+        </div>
+        <div class="seg" role="tablist" aria-label="Choose view">
+          <button type="button" role="tab" data-show="steps" aria-selected="true">Steps</button>
+          <button type="button" role="tab" data-show="flow" aria-selected="false">Flowchart</button>
+        </div>
+        <div class="card-body">
+          <div class="views">
+            <ol class="steps view-steps">
+              <li><span class="step-n">1</span><div>Create a new branch. It must be <em>separate</em> from the <code>main</code> branch. Commit and push your code to this branch.</div></li>
+              <li><span class="step-n">2</span><div>Create a Pull Request (PR), and assign Supervisor Pica and the reviewer of the week as reviewers.</div></li>
+              <li><span class="step-n">3</span><div>Check the review result.
+<pre class="go"><code>if pr.Approved() &amp;&amp; pr.MergedInto("main") {
+	goto Step4
+} else {
+	code.Revise(review.Comments)
+	goto Step2
+}</code></pre></div></li>
+              <li><span class="step-n">4</span><div>Thank your reviewers, and enjoy your day!</div></li>
+            </ol>
+            <div class="view-flow">
+              <svg class="flow" viewBox="0 0 400 462" role="img" aria-label="Flowchart of the submit-code procedure">
+                <defs><marker id="arr-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="fc-head"/></marker></defs>
+                <rect class="fc-term" x="40" y="8" width="200" height="34" rx="17"/><text x="140" y="30">Start: your code is ready</text>
+                <path class="fc-line" d="M140 42V68" marker-end="url(#arr-a)"/>
+                <rect class="fc-box" x="30" y="70" width="220" height="48" rx="8"/><text x="140" y="90"><tspan class="fc-n">1</tspan> Create a new branch</text><text x="140" y="108" class="fc-small">(not main) · commit &amp; push code</text>
+                <path class="fc-line" d="M140 118V140" marker-end="url(#arr-a)"/>
+                <rect class="fc-box" x="30" y="142" width="220" height="48" rx="8"/><text x="140" y="162"><tspan class="fc-n">2</tspan> Create a PR, assign Pica</text><text x="140" y="180" class="fc-small">+ the reviewer of the week</text>
+                <path class="fc-line" d="M140 190V210" marker-end="url(#arr-a)"/>
+                <path class="fc-dec" d="M140 212L250 262L140 312L30 262z"/><text x="140" y="258"><tspan class="fc-n">3</tspan> Approved &amp;</text><text x="140" y="276">merged into main?</text>
+                <path class="fc-line" d="M140 312V344" marker-end="url(#arr-a)"/><text x="152" y="333" class="fc-yes" text-anchor="start">YES</text>
+                <rect class="fc-box" x="30" y="346" width="220" height="44" rx="8"/><text x="140" y="373"><tspan class="fc-n">4</tspan> Thank your reviewers</text>
+                <path class="fc-line" d="M140 390V412" marker-end="url(#arr-a)"/>
+                <rect class="fc-term fc-end" x="40" y="414" width="200" height="34" rx="17"/><text x="140" y="436">Done. Enjoy your day!</text>
+                <path class="fc-line" d="M250 262H278" marker-end="url(#arr-a)"/><text x="256" y="254" class="fc-no" text-anchor="start">NO</text>
+                <rect class="fc-box fc-alt" x="280" y="226" width="112" height="72" rx="8"/><text x="336" y="253">Revise code</text><text x="336" y="270" class="fc-small">based on the</text><text x="336" y="286" class="fc-small">comments</text>
+                <path class="fc-line fc-back" d="M336 226V166H252" marker-end="url(#arr-a)"/><text x="344" y="196" class="fc-small" text-anchor="start">back to 2</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03B · REVIEW OTHERS -->
+      <article class="card step-card" id="review" data-fx data-view="steps" aria-labelledby="review-title">
+        <canvas class="fx" aria-hidden="true"></canvas>
+        <div class="card-head">
+          <span class="num">3B</span>
+          <h2 id="review-title">…are asked to review others’ submissions?</h2>
+          <button class="expand" type="button" aria-label="Open Review guide in full view">⤢</button>
+        </div>
+        <div class="seg" role="tablist" aria-label="Choose view">
+          <button type="button" role="tab" data-show="steps" aria-selected="true">Steps</button>
+          <button type="button" role="tab" data-show="flow" aria-selected="false">Flowchart</button>
+        </div>
+        <div class="card-body">
+          <div class="views">
+            <ol class="steps view-steps">
+              <li><span class="step-n">1</span><div>Write unit tests <em>(as detailed as possible)</em> for the submission, based on the specification submitted with the code.</div></li>
+              <li><span class="step-n">2</span><div>Ask Supervisor Pica to review the tests you wrote.</div></li>
+              <li><span class="step-n">3</span><div>Check her feedback.
+<pre class="go"><code>if pica.Approves(myTests) {
+	goto Step4
+} else {
+	myTests.Revise(pica.Instructions)
+	goto Step2
+}</code></pre></div></li>
+              <li><span class="step-n">4</span><div>Run your test cases on the submitted code.</div></li>
+              <li><span class="step-n">5</span><div>Check the test results.
+<pre class="go"><code>if code.PassesAll(myTests) {
+	pr.Approve() // on GitHub
+	pr.MergeInto("main")
+} else {
+	pr.Comment(issues)
+	pr.Decline()
+	notify(pr.Author)
+}</code></pre></div></li>
+            </ol>
+            <div class="view-flow">
+              <svg class="flow" viewBox="0 0 400 620" role="img" aria-label="Flowchart of the code-review procedure">
+                <defs><marker id="arr-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="fc-head"/></marker></defs>
+                <rect class="fc-term" x="40" y="8" width="200" height="34" rx="17"/><text x="140" y="30">Start: a PR is assigned to you</text>
+                <path class="fc-line" d="M140 42V68" marker-end="url(#arr-b)"/>
+                <rect class="fc-box" x="30" y="70" width="220" height="48" rx="8"/><text x="140" y="90"><tspan class="fc-n">1</tspan> Write detailed unit tests</text><text x="140" y="108" class="fc-small">based on the code’s specification</text>
+                <path class="fc-line" d="M140 118V140" marker-end="url(#arr-b)"/>
+                <rect class="fc-box" x="30" y="142" width="220" height="48" rx="8"/><text x="140" y="162"><tspan class="fc-n">2</tspan> Ask Supervisor Pica</text><text x="140" y="180" class="fc-small">to review your tests</text>
+                <path class="fc-line" d="M140 190V210" marker-end="url(#arr-b)"/>
+                <path class="fc-dec" d="M140 212L250 262L140 312L30 262z"/><text x="140" y="258"><tspan class="fc-n">3</tspan> Does Pica</text><text x="140" y="276">approve the tests?</text>
+                <path class="fc-line" d="M250 262H278" marker-end="url(#arr-b)"/><text x="256" y="254" class="fc-no" text-anchor="start">NO</text>
+                <rect class="fc-box fc-alt" x="280" y="226" width="112" height="72" rx="8"/><text x="336" y="253">Revise tests</text><text x="336" y="270" class="fc-small">based on her</text><text x="336" y="286" class="fc-small">instructions</text>
+                <path class="fc-line fc-back" d="M336 226V166H252" marker-end="url(#arr-b)"/><text x="344" y="196" class="fc-small" text-anchor="start">back to 2</text>
+                <path class="fc-line" d="M140 312V344" marker-end="url(#arr-b)"/><text x="152" y="333" class="fc-yes" text-anchor="start">YES</text>
+                <rect class="fc-box" x="30" y="346" width="220" height="44" rx="8"/><text x="140" y="373"><tspan class="fc-n">4</tspan> Run tests on the code</text>
+                <path class="fc-line" d="M140 390V414" marker-end="url(#arr-b)"/>
+                <path class="fc-dec" d="M140 416L250 466L140 516L30 466z"/><text x="140" y="462"><tspan class="fc-n">5</tspan> Does the code</text><text x="140" y="480">pass all tests?</text>
+                <path class="fc-line" d="M140 516V548" marker-end="url(#arr-b)"/><text x="152" y="537" class="fc-yes" text-anchor="start">YES</text>
+                <rect class="fc-term fc-end" x="30" y="550" width="220" height="56" rx="14"/><text x="140" y="574">Approve the PR &amp;</text><text x="140" y="592">merge into main</text>
+                <path class="fc-line" d="M250 466H278" marker-end="url(#arr-b)"/><text x="256" y="458" class="fc-no" text-anchor="start">NO</text>
+                <rect class="fc-box fc-stop" x="280" y="416" width="112" height="100" rx="8"/><text x="336" y="442">Comment on</text><text x="336" y="460">the issues,</text><text x="336" y="478">decline the PR,</text><text x="336" y="496">notify the author</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</main>
+
+<dialog class="modal" aria-label="Section in full view">
+  <div class="modal-panel" data-fx>
+    <canvas class="fx" aria-hidden="true"></canvas>
+    <button class="modal-close" type="button" aria-label="Close full view">✕</button>
+    <div class="modal-content"></div>
+  </div>
+</dialog>
+
+<script src="https://www.youtube.com/iframe_api" async></script>
+<script src="bg.js"></script>
+<script src="logo-data.js"></script>
+<script src="fx.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

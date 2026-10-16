@@ -1,0 +1,521 @@
+/* ---------- Tokens (taken from the Marigold logo) ---------- */
+:root {
+  --bg: #f5efe3;
+  --bg-glow: rgba(240, 168, 54, .16);
+  --card: #fffdf8;
+  --card-2: #fbf6ec;
+  --line: #e7dcc6;
+  --line-strong: #cbb995;
+  --ink: #23221f;
+  --muted: #6a6457;
+  --gold: #d6a440;
+  --gold-ink: #8f6512;      /* gold dark enough for small text */
+  --gold-tint: #f8ecd2;
+  --leaf: #5f8a43;
+  --leaf-tint: #e6efdc;
+  --petal: #f0a836;
+  --stop: #b4532a;
+  --stop-tint: #f7e3d8;
+  --shadow: 0 1px 2px rgba(60, 45, 15, .06), 0 8px 24px rgba(60, 45, 15, .07);
+  --radius: 16px;
+  --gap: clamp(12px, calc(2.4vw - 16px), 44px);     /* space between sections (the code effect shows here) */
+  --side: clamp(20px, calc(5.5vw - 44px), 110px);    /* page margin */
+  --head: "Source Serif 4", Georgia, "Times New Roman", serif;   /* serif: headings */
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;   /* sans-serif: everything else */
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14130f;
+    --bg-glow: rgba(240, 168, 54, .08);
+    --card: #1d1b16;
+    --card-2: #242119;
+    --line: #34302a;
+    --line-strong: #5a5243;
+    --ink: #f1ece2;
+    --muted: #a9a190;
+    --gold: #e3b04b;
+    --gold-ink: #eab95a;
+    --gold-tint: #3a2f19;
+    --leaf: #8fbd6c;
+    --leaf-tint: #23301b;
+    --stop: #e58a62;
+    --stop-tint: #3a2219;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14130f; --bg-glow: rgba(240, 168, 54, .08); --card: #1d1b16; --card-2: #242119;
+  --line: #34302a; --line-strong: #5a5243; --ink: #f1ece2; --muted: #a9a190;
+  --gold: #e3b04b; --gold-ink: #eab95a; --gold-tint: #3a2f19; --leaf: #8fbd6c; --leaf-tint: #23301b;
+  --stop: #e58a62; --stop-tint: #3a2219; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+/* all type is in rem: ~14px on a 1440×900 screen, growing on larger screens */
+html { font-size: clamp(13px, calc(0.42vw + 0.55vh + 2.7px), 20px); }
+body {
+  font-family: var(--body);
+  font-size: 0.964rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background:
+    radial-gradient(1100px 600px at 85% -10%, var(--bg-glow), transparent 60%),
+    radial-gradient(800px 500px at -10% 110%, var(--bg-glow), transparent 60%),
+    var(--bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+/* every clickable text link (pages, sections, email addresses) is underlined */
+a { color: var(--gold-ink); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--petal); text-decoration-thickness: 2px; }
+p { margin: 0 0 .6em; }
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: .88em;
+  background: var(--gold-tint);
+  color: var(--gold-ink);
+  padding: .05em .4em;
+  border-radius: 5px;
+}
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* ---------- Masthead ---------- */
+.masthead {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: clamp(10px, 1.6vh, 22px) var(--side) clamp(8px, 1.4vh, 18px);
+}
+.masthead-logo { width: 3.6rem; height: 3.6rem; }
+.eyebrow {
+  margin: 0;
+  font-size: 0.857rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+}
+h1 {
+  margin: 0;
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 2.15rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+h1 .dash { color: var(--gold); font-weight: 600; }
+.masthead-hint {
+  margin: 0;
+  font-size: 0.857rem;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.5;
+}
+.hint-icon {
+  display: inline-grid; place-items: center;
+  width: 18px; height: 18px; border-radius: 5px;
+  border: 1px solid var(--line-strong);
+  font-size: 0.786rem; color: var(--ink);
+}
+
+/* ---------- Board (one-screen grid on desktop) ---------- */
+.board {
+  display: grid;
+  grid-template-columns: minmax(0, 11fr) minmax(0, 13fr);
+  grid-template-rows: auto minmax(0, 1fr);     /* intro takes what it needs, Q&A gets the rest */
+  gap: var(--gap);
+  padding: 0 var(--side) var(--gap);
+}
+#intro { grid-column: 1; grid-row: 1; }
+#qa    { grid-column: 1; grid-row: 2; }
+.guides-group {
+  grid-column: 2; grid-row: 1 / 3;
+  display: flex; flex-direction: column; gap: 10px;
+  min-height: 0;
+  padding: 10px;
+  border-radius: calc(var(--radius) + 6px);
+  border: 1px dashed var(--line-strong);
+  background: color-mix(in srgb, var(--gold-tint) 45%, transparent);
+}
+.subgrid {
+  flex: 1; min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 1000px) and (min-height: 660px) {
+  body { height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+  .board { flex: 1; min-height: 0; }
+}
+
+/* ---------- Cards ---------- */
+.card {
+  position: relative;
+  border-top: 3px solid var(--gold) !important;   /* repeated brand marker on every section */
+  display: flex; flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: border-color .3s, box-shadow .3s;
+}
+.card:hover { border-color: var(--line-strong); }
+.fx {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.card-head, .card-body, .seg, .prep { position: relative; z-index: 1; }
+
+.card-head {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 11px 16px 6px;
+}
+.num {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 0.857rem;
+  letter-spacing: .02em;
+  color: var(--gold-ink);
+  background: var(--gold-tint);
+  border-radius: 6px;
+  min-width: 1.75em; height: 1.45em;
+  padding: 0 0.4em;
+  flex: none;
+  align-self: center;
+}
+h2 {
+  margin: 0;
+  flex: 1;
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 1.55rem;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+.expand {
+  flex: none; align-self: center;
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 1.071rem;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.expand:hover { background: var(--gold-tint); border-color: var(--gold); }
+
+.card-body {
+  flex: 1; min-height: 0;
+  overflow: auto;
+  padding: 2px 16px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+/* keep text crisp over the logo effect */
+.card-body, .prep { text-shadow: 0 0 6px var(--card), 0 0 2px var(--card); }
+
+.lead {
+  font-family: var(--head);
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold-ink);
+  margin-bottom: .25em;
+}
+.sub-label { font-weight: 700; margin: .8em 0 .35em; font-size: 0.857rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.policies { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.policies li {
+  padding: 4px 10px;
+  line-height: 1.45;
+  border-left: 3px solid var(--gold);
+  background: color-mix(in srgb, var(--card-2) 80%, transparent);
+  border-radius: 0 8px 8px 0;
+}
+.policies strong { color: var(--ink); }
+
+/* ---------- Q&A ---------- */
+.qa-list { display: grid; margin: 0; }
+.qa-item { padding: 5px 0 5px; border-top: 1px dashed var(--line-strong); }
+.qa-item:first-child { border-top: 0; padding-top: 0; }
+.qa-list dt {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-weight: 600;
+}
+.qa-list dt::before {
+  content: "Q";
+  flex: none;
+  width: 1.45rem; height: 1.45rem; border-radius: 5px;
+  margin-top: 0.02rem;
+  font-family: var(--body); font-weight: 700; font-size: 0.857rem;
+  color: var(--card); background: var(--gold);
+  text-shadow: none;
+}
+.qa-list dd { margin: 2px 0 0; padding-left: calc(1.45rem + 8px); }
+
+/* ---------- Guides header card ---------- */
+.guides-card { flex: none; }
+.prep {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  padding: 0 16px 12px;
+  align-items: start;
+}
+.prep-text { align-self: center; }
+.tag {
+  display: inline-block;
+  font-size: 0.786rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--leaf); background: var(--leaf-tint);
+  padding: 1px 8px; border-radius: 99px; margin-right: 4px;
+  text-shadow: none;
+}
+.video { margin: 0; }
+.video-frame {
+  position: relative; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden;
+  background: #000;
+  border: 1px solid var(--line);
+}
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video figcaption {
+  display: flex; align-items: center; justify-content: space-between; gap: 6px;
+  font-size: 0.857rem; color: var(--muted); margin-top: 4px; font-weight: 500;
+}
+.video-zoom {
+  font: inherit; font-size: 0.821rem; font-weight: 600;
+  color: var(--gold-ink); background: var(--gold-tint);
+  border: 1px solid transparent; border-radius: 6px;
+  padding: 1px 8px; cursor: pointer; text-shadow: none;
+  transition: border-color .2s;
+}
+.video-zoom { text-decoration: underline; text-underline-offset: 2px; }
+.video-zoom:hover { border-color: var(--gold); }
+
+/* large video player inside the dialog */
+.modal.video-mode .modal-panel { height: auto; }
+.video-large {
+  position: relative; z-index: 1;
+  width: min(calc(100% - 56px), calc((100vh - 170px) * 16 / 9));
+  aspect-ratio: 16 / 9;
+  margin: 0 auto 28px;
+  border-radius: 12px; overflow: hidden; background: #000;
+}
+.video-large iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- Step cards ---------- */
+.seg {
+  display: inline-flex; align-self: flex-start;
+  margin: 0 16px 6px;
+  padding: 3px;
+  border-radius: 9px;
+  background: var(--card-2);
+  border: 1px solid var(--line);
+}
+.seg button {
+  font: inherit; font-size: 0.893rem; font-weight: 600;
+  border: 0; background: transparent; color: var(--muted);
+  padding: 3px 12px; border-radius: 6px; cursor: pointer;
+}
+.seg button[aria-selected="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+
+.step-card .card-body { display: flex; }
+.step-card .views {
+  flex: 1; min-height: 0;
+  display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+}
+.step-card .views > * {
+  grid-area: 1 / 1;
+  min-height: 0;
+  transition: opacity .7s ease, visibility 0s linear .7s;
+}
+.step-card[data-view="steps"] .view-flow,
+.step-card[data-view="flow"] .view-steps { opacity: 0; visibility: hidden; pointer-events: none; }
+.step-card[data-view="steps"] .view-steps,
+.step-card[data-view="flow"] .view-flow { opacity: 1; visibility: visible; transition: opacity .7s ease, visibility 0s; }
+.view-flow { display: flex; justify-content: center; }
+.view-steps { align-content: start; }
+.flow { width: 100%; height: 100%; max-height: 100%; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.steps > li { display: flex; gap: 10px; align-items: flex-start; }
+.steps > li > div { min-width: 0; }   /* lets a long code line scroll instead of widening the card */
+.step-n {
+  flex: none;
+  width: 1.6rem; height: 1.6rem; border-radius: 50%;
+  font-family: var(--body); font-weight: 700; font-size: 0.857rem;
+  color: var(--card); background: var(--ink);
+  margin-top: -0.08rem; text-shadow: none;
+}
+
+/* Round / square badges: trim the font's extra space above and below the letters so the
+   character sits exactly in the middle of its shape */
+.step-n, .qa-list dt::before, .num {
+  display: inline-grid; place-items: center;
+  line-height: 1;
+  text-box: trim-both cap alphabetic;
+  font-variant-numeric: tabular-nums;
+}
+/* Go code blocks (VS Code "Dark+" Go colours) */
+pre.go {
+  position: relative;
+  margin: 5px 0 0;
+  padding: 7px 8px 7px 10px;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 8px;
+  border-left: 3px solid #00add8;          /* Go brand blue */
+  font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  tab-size: 4;
+  overflow-x: auto;
+  text-shadow: none;
+  scrollbar-width: thin;
+}
+pre.go::after {
+  content: "Go";
+  position: absolute; bottom: 6px; right: 9px;
+  font-family: var(--body); font-size: 0.714rem; font-weight: 700; letter-spacing: .04em;
+  color: #00add8;
+}
+pre.go code { font: inherit; background: none; color: inherit; padding: 0; border-radius: 0; }
+.go .tk-kw  { color: #c586c0; }   /* if / else / goto */
+.go .tk-fn  { color: #dcdcaa; }   /* functions & methods */
+.go .tk-str { color: #ce9178; }   /* strings */
+.go .tk-id  { color: #9cdcfe; }   /* identifiers */
+.go .tk-lbl { color: #4ec9b0; }   /* labels (Step2, Step4) */
+.go .tk-com { color: #6a9955; font-style: italic; }
+.go .tk-op  { color: #d4d4d4; }
+.go .tk-br  { color: #ffd700; }   /* braces */
+
+/* ---------- Flowchart styling ---------- */
+.flow text {
+  font-family: var(--body);
+  font-size: 13px; font-weight: 500;
+  fill: var(--ink);
+  text-anchor: middle;
+}
+.flow .fc-small { font-size: 11.5px; font-weight: 400; fill: var(--muted); }
+.flow .fc-n { font-family: var(--body); font-weight: 700; fill: var(--gold-ink); }
+.flow .fc-yes, .flow .fc-no { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: .06em; }
+.flow .fc-yes { fill: var(--leaf); }
+.flow .fc-no { fill: var(--stop); }
+.fc-box  { fill: var(--card); stroke: var(--line-strong); stroke-width: 1.2; }
+.fc-alt  { fill: var(--card-2); stroke-dasharray: 4 3; }
+.fc-stop { fill: var(--stop-tint); stroke: var(--stop); }
+.fc-dec  { fill: var(--gold-tint); stroke: var(--gold); stroke-width: 1.4; }
+.fc-term { fill: var(--card-2); stroke: var(--ink); stroke-width: 1.2; }
+.fc-end  { fill: var(--leaf-tint); stroke: var(--leaf); }
+.fc-line { fill: none; stroke: var(--muted); stroke-width: 1.4; }
+.fc-back { stroke-dasharray: 4 3; }
+.fc-head { fill: var(--muted); }
+
+/* ---------- Full-view dialog ---------- */
+.modal {
+  padding: 0; border: 0; background: transparent;
+  width: min(1100px, calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  color: var(--ink);
+}
+.modal::backdrop { background: rgba(20, 16, 8, .45); backdrop-filter: blur(3px); }
+.modal[open] { animation: pop .25s ease-out; }
+@keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.98); } }
+.modal-panel {
+  position: relative;
+  height: min(760px, calc(100vh - 48px));
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line-strong);
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.3);
+}
+.modal-content { position: relative; z-index: 1; flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.modal-content .card-head { padding: 22px 64px 10px 28px; }
+.modal-content h2 { font-size: 2.143rem; }
+.modal-content .num { font-size: 1.286rem; }
+.modal-content .card-body { padding: 4px 28px 24px; font-size: 1.143rem; }
+.modal-content .lead { font-size: 1.643rem; }
+.modal-content .views {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: start;
+  height: 100%;
+}
+.modal-content .views > * { grid-area: auto; opacity: 1; visibility: visible; pointer-events: auto; }
+.modal-content .view-flow { height: 100%; min-height: 420px; }
+.modal-content pre.go { font-size: 0.929rem; }
+.modal-close {
+  position: absolute; top: 18px; right: 18px; z-index: 2;
+  width: 36px; height: 36px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  font-size: 1.071rem; cursor: pointer;
+}
+.modal-close:hover { background: var(--gold-tint); border-color: var(--gold); }
+
+/* ---------- Smaller screens: stack and allow normal scrolling ---------- */
+@media (max-width: 999px), (max-height: 659px) {
+  .board { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  #intro, #qa, .guides-group { grid-column: auto; grid-row: auto; }
+  .card-body { overflow: visible; }
+  .step-card { min-height: 420px; }
+  .step-card .view-flow { min-height: 380px; }
+}
+@media (max-width: 760px) {
+  .masthead { grid-template-columns: auto 1fr; padding: 14px 16px 10px; }
+  .masthead-hint { display: none; }
+  .board { padding: 0 16px 16px; }
+  .guides-group { padding: 8px; }
+  .subgrid { grid-template-columns: minmax(0, 1fr); }
+  .prep { grid-template-columns: minmax(0, 1fr); }
+  .modal-content .views { grid-template-columns: minmax(0, 1fr); }
+  .modal-content .card-head { padding: 18px 56px 8px 18px; }
+  .modal-content .card-body { padding: 4px 18px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .modal[open] { animation: none; }
+}
+
+/* the logo's black "M" needs a light backing on dark backgrounds */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .masthead-logo { background: #f5efe3; border-radius: 12px; padding: 4px; }
+}
+:root[data-theme="dark"] .masthead-logo { background: #f5efe3; border-radius: 12px; padding: 4px; }
+
+/* "Step-by-Step Guides" link: light up the whole guides area */
+.guides-group.flash { animation: group-flash 2.2s ease-out; }
+.guides-group.flash .card { animation: card-flash 2.2s ease-out; }
+@keyframes group-flash {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(214, 164, 64, 0); }
+  15%, 55% { box-shadow: 0 0 0 4px var(--gold), 0 0 36px 6px rgba(240, 168, 54, .45); border-color: var(--gold); }
+}
+@keyframes card-flash {
+  0%, 100% { border-color: var(--line); }
+  15%, 55% { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(214, 164, 64, .55), var(--shadow); background-color: color-mix(in srgb, var(--gold-tint) 55%, var(--card)); }
+}
+
+/* ---------- Emphasis (used sparingly) ---------- */
+strong { font-weight: 700; color: var(--ink); }
+em { font-style: italic; }
+.card-body strong.hl { color: var(--gold-ink); }
+.modal-panel { border-top: 3px solid var(--gold); }
+
+/* Alignment: 3A and 3B share their rows, so the headings, the Steps/Flowchart switches
+   and the first steps line up across both cards even when one title wraps */
+@media (min-width: 761px) {
+  .subgrid { grid-template-rows: auto auto minmax(0, 1fr); row-gap: 0; }
+  .step-card { grid-row: span 3; display: grid; grid-template-rows: subgrid; }
+  .step-card .card-head { align-items: start; }
+  .step-card .seg { justify-self: start; align-self: start; }
+}
