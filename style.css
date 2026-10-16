@@ -150,7 +150,7 @@ h1 .dash { color: var(--gold); font-weight: 600; }
   gap: 12px;
 }
 
-@media (min-width: 1000px) and (min-height: 660px) {
+@media (min-width: 1200px) and (min-height: 720px) {
   body { height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
   .board { flex: 1; min-height: 0; }
 }
@@ -465,7 +465,7 @@ pre.go code { font: inherit; background: none; color: inherit; padding: 0; borde
 .modal-close:hover { background: var(--gold-tint); border-color: var(--gold); }
 
 /* ---------- Smaller screens: stack and allow normal scrolling ---------- */
-@media (max-width: 999px), (max-height: 659px) {
+@media (max-width: 1199px), (max-height: 719px) {
   .board { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
   #intro, #qa, .guides-group { grid-column: auto; grid-row: auto; }
   .card-body { overflow: visible; }
