@@ -181,19 +181,19 @@ h1 .dash { color: var(--gold); font-weight: 600; }
   display: flex; align-items: baseline; gap: 10px;
   padding: 11px 16px 6px;
 }
-.num {
-  font-family: var(--body);
-  font-weight: 700;
-  font-size: 0.857rem;
-  letter-spacing: .02em;
+/* section icon (replaces the old 01 / 02 / 03 labels) */
+.sec-icon {
+  flex: none; align-self: center;
+  display: grid; place-items: center;
+  width: 2rem; height: 2rem;
+  border-radius: 9px;
   color: var(--gold-ink);
   background: var(--gold-tint);
-  border-radius: 6px;
-  min-width: 1.75em; height: 1.45em;
-  padding: 0 0.4em;
-  flex: none;
-  align-self: center;
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  --icon-accent: var(--petal);
+  --icon-accent-soft: color-mix(in srgb, var(--petal) 28%, transparent);
 }
+.sec-icon svg { width: 1.3rem; height: 1.3rem; display: block; }
 h2 {
   margin: 0;
   flex: 1;
@@ -372,7 +372,7 @@ h2 {
 
 /* Round / square badges: trim the font's extra space above and below the letters so the
    character sits exactly in the middle of its shape */
-.step-n, .qa-list dt::before, .qa-list dd::before, .num {
+.step-n, .qa-list dt::before, .qa-list dd::before {
   display: inline-grid; place-items: center;
   line-height: 1;
   text-box: trim-both cap alphabetic;
@@ -456,7 +456,8 @@ pre.go code { font: inherit; background: none; color: inherit; padding: 0; borde
 .modal-content { position: relative; z-index: 1; flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .modal-content .card-head { padding: 22px 64px 10px 28px; }
 .modal-content h2 { font-size: 2.143rem; }
-.modal-content .num { font-size: 1.286rem; }
+.modal-content .sec-icon { width: 2.5rem; height: 2.5rem; }
+.modal-content .sec-icon svg { width: 1.6rem; height: 1.6rem; }
 .modal-content .card-body { padding: 4px 28px 24px; font-size: 1.143rem; }
 .modal-content .lead { font-size: 1.643rem; }
 .modal-content .views {

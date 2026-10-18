@@ -81,7 +81,7 @@
 
       const head = document.createElement("div");
       head.className = "card-head";
-      head.innerHTML = `<span class="num">03</span><h2></h2>`;
+      head.innerHTML = `<span class="sec-icon" aria-hidden="true"><svg><use href="icons.svg#guides"/></svg></span><h2></h2>`;
       head.querySelector("h2").textContent = btn.dataset.title;
       const frame = document.createElement("div");
       frame.className = "video-large";

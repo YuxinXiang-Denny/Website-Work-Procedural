@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- Section icons for the Marigold Tech manual. Line art in currentColor;
+       accent fills use the icon-accent CSS variables so they follow the light / dark theme. -->
+
+  <!-- Introduction: a marigold, like the flower in the logo -->
+  <symbol id="intro" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 12.5V22"/>
+      <path d="M12 18.5c-.4-2.4-2.2-3.8-4.6-3.9.3 2.3 2 3.8 4.6 3.9z"/>
+      <path d="M12 16.5c.5-1.8 2-2.9 3.9-2.9-.3 1.8-1.7 2.9-3.9 2.9z"/>
+      <g style="fill: var(--icon-accent)">
+        <ellipse cx="12" cy="4.1" rx="1.7" ry="2.5"/>
+        <ellipse cx="12" cy="4.1" rx="1.7" ry="2.5" transform="rotate(60 12 7.6)"/>
+        <ellipse cx="12" cy="4.1" rx="1.7" ry="2.5" transform="rotate(120 12 7.6)"/>
+        <ellipse cx="12" cy="4.1" rx="1.7" ry="2.5" transform="rotate(180 12 7.6)"/>
+        <ellipse cx="12" cy="4.1" rx="1.7" ry="2.5" transform="rotate(240 12 7.6)"/>
+        <ellipse cx="12" cy="4.1" rx="1.7" ry="2.5" transform="rotate(300 12 7.6)"/>
+      </g>
+      <circle cx="12" cy="7.6" r="1.6" fill="currentColor" stroke="none"/>
+    </g>
+  </symbol>
+
+  <!-- Common Q&A: two speech bubbles, one asking -->
+  <symbol id="qa" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 3.5h10a2 2 0 0 1 2 2V11a2 2 0 0 1-2 2H9l-3.5 3v-3H4a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2z" style="fill: var(--icon-accent-soft)"/>
+      <path d="M7.4 6.6a1.7 1.7 0 1 1 2.3 1.6c-.5.2-.8.6-.8 1.1v.2"/>
+      <circle cx="8.9" cy="11" r=".35" fill="currentColor"/>
+      <path d="M18.5 8.5h1.5a2 2 0 0 1 2 2V16a2 2 0 0 1-2 2h-1v2.5L15.8 18H12a2 2 0 0 1-2-2v-.5"/>
+    </g>
+  </symbol>
+
+  <!-- Step-by-Step Guides: climbing steps to a flag -->
+  <symbol id="guides" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2.5 21h5v-4.5h5V12h5V7.5"/>
+      <path d="M17.5 7.5V2.5" />
+      <path d="M17.5 2.5l4 1.6-4 1.6z" style="fill: var(--icon-accent)"/>
+      <circle cx="5" cy="14.2" r="1.3"/>
+    </g>
+  </symbol>
+
+  <!-- 3A Submit code: a branch being pushed up -->
+  <symbol id="submit" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="5.5" cy="4.5" r="2"/>
+      <circle cx="5.5" cy="19.5" r="2"/>
+      <circle cx="14" cy="8" r="2" style="fill: var(--icon-accent)"/>
+      <path d="M5.5 6.5v11"/>
+      <path d="M14 10c0 4.5-8.5 3-8.5 7.5"/>
+      <path d="M20 21v-8M17.3 15.6 20 13l2.7 2.6"/>
+    </g>
+  </symbol>
+
+  <!-- 3B Review submissions: a magnifier with a check -->
+  <symbol id="review" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="10" cy="10" r="6.5" style="fill: var(--icon-accent-soft)"/>
+      <path d="m14.8 14.8 6.2 6.2"/>
+      <path d="m7.2 10.2 2 2 3.8-3.9"/>
+    </g>
+  </symbol>
+
+  <!-- Sub-pages -->
+  <symbol id="perks" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 2.5l1.9 5.4 5.4 1.9-5.4 1.9L11 17.1l-1.9-5.4-5.4-1.9 5.4-1.9z" style="fill: var(--icon-accent)"/>
+      <path d="M19 15v6M16 18h6"/>
+    </g>
+  </symbol>
+  <symbol id="key" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="7.5" cy="15.5" r="4.5" style="fill: var(--icon-accent-soft)"/>
+      <circle cx="7.5" cy="15.5" r="1.2" fill="currentColor"/>
+      <path d="m10.8 12.2 9.2-9.2M16.5 6.5l2.5 2.5M14 9l2 2"/>
+    </g>
+  </symbol>
+  <symbol id="calendar" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/>
+      <path d="M3 9.5h18M8 2.5v4M16 2.5v4"/>
+      <rect x="13.5" y="13" width="4" height="4" rx="1" style="fill: var(--icon-accent)"/>
+      <path d="M7 13.5h2.5M7 17h2.5"/>
+    </g>
+  </symbol>
+  <symbol id="send" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21.5 2.5 2.5 10l7.5 3 3 8z" style="fill: var(--icon-accent-soft)"/>
+      <path d="M10 13 21.5 2.5"/>
+    </g>
+  </symbol>
+  <symbol id="route" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="5.5" cy="18.5" r="2.5"/>
+      <circle cx="18.5" cy="5.5" r="2.5" style="fill: var(--icon-accent)"/>
+      <path d="M8 18.5h7.5a3.25 3.25 0 0 0 0-6.5h-7a3.25 3.25 0 0 1 0-6.5H16"/>
+    </g>
+  </symbol>
+  <symbol id="idea" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2.5a6.5 6.5 0 0 0-3.8 11.8c.7.5 1.1 1.3 1.1 2.2h5.4c0-.9.4-1.7 1.1-2.2A6.5 6.5 0 0 0 12 2.5z" style="fill: var(--icon-accent)"/>
+      <path d="M9.5 19h5M10.5 21.5h3"/>
+    </g>
+  </symbol>
+</svg>
