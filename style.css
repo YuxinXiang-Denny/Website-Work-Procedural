@@ -263,7 +263,17 @@ h2 {
   color: var(--card); background: var(--gold);
   text-shadow: none;
 }
-.qa-list dd { margin: 2px 0 0; padding-left: calc(1.45rem + 8px); }
+.qa-list dd { position: relative; margin: 3px 0 0; padding-left: calc(1.45rem + 8px); }
+/* "A" badge: same shape as "Q", outlined instead of filled so question and answer read apart */
+.qa-list dd::before {
+  content: "A";
+  position: absolute; left: 0; top: 0.02rem;
+  width: 1.45rem; height: 1.45rem; border-radius: 5px;
+  font-family: var(--body); font-weight: 700; font-size: 0.857rem;
+  color: var(--gold-ink); background: var(--gold-tint);
+  border: 1px solid var(--gold);
+  text-shadow: none;
+}
 
 /* ---------- Guides header card ---------- */
 .guides-card { flex: none; }
@@ -362,7 +372,7 @@ h2 {
 
 /* Round / square badges: trim the font's extra space above and below the letters so the
    character sits exactly in the middle of its shape */
-.step-n, .qa-list dt::before, .num {
+.step-n, .qa-list dt::before, .qa-list dd::before, .num {
   display: inline-grid; place-items: center;
   line-height: 1;
   text-box: trim-both cap alphabetic;
